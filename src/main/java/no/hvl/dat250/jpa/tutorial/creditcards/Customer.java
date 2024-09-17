@@ -1,6 +1,7 @@
 package no.hvl.dat250.jpa.tutorial.creditcards;
 
-import java.util.Collection;
+import java.util.*;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -8,19 +9,31 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    private List<Address> addresses;
+    @ManyToMany
+    private Set<CreditCard> creditCards;
+    public Customer(String name){
+        this.name = name;
+        this.addresses = new ArrayList<>();
+        this.creditCards = new HashSet<>();
+    }
+
+    public Customer() {
+
+    }
 
     public String getName() {
-        // TODO: implement method!
-        return null;
+
+        return this.name;
     }
 
     public Collection<Address> getAddresses() {
-        // TODO: implement method!
-        return null;
+        return this.addresses;
     }
 
     public Collection<CreditCard> getCreditCards() {
-        // TODO: implement method!
-        return null;
+        return this.creditCards;
     }
 }
