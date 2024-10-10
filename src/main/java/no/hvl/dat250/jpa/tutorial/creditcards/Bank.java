@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.*;
 
 @Entity
+
 public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

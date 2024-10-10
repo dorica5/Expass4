@@ -22,7 +22,6 @@ public class CreditCardsMain {
   private static void createObjects(EntityManager em) {
     // TODO: Create object world as shown in the README.md.
     Address address = new Address("Inndalsveien", 28);
-    em.persist(address);
 
     Customer customer = new Customer("Max Mustermann");
     customer.getAddresses().add(address);
